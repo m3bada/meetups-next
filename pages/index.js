@@ -1,38 +1,41 @@
+/** @format */
+
 import MeetupList from "../components/meetups/MeetupList";
-import Layout from '../components/layout/Layout'
 
 const DUMMY_MEETUPS = [
   {
     id: "m1",
     title: "A First Meetups",
-    image:
-      "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
-    addrees: "alRawdatain",
-    description: "hi",
+    image: "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
+    address: "alRawdatain",
+    description: "abada ",
   },
   {
     id: "m2",
     title: "A second Meetups",
-    image:
-      "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
-    addrees: "alRawdatain",
+    image: "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
+    address: "alRawdatain",
     description: "hi",
   },
   {
     id: "m3",
     title: "A 3th Meetups",
-    image:
-      "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
-    addrees: "alRawdatain",
+    image: "https://static.toiimg.com/photo/msid-53891743,width-96,height-65.cms",
+    address: "alRawdatain",
     description: "hi",
   },
 ];
 
-function HomePage() {
-  return (
-    <Layout>
-      <MeetupList meetups={DUMMY_MEETUPS} />
-    </Layout>
-  );
+function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />;
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 10,
+  };
 }
 export default HomePage;
