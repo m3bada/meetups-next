@@ -26,7 +26,8 @@ export async function getStaticPaths() {
         params: {
           meetupid: "m2",
         },
-      },
+        },
+      {}
     ],
   };
 }
@@ -43,7 +44,8 @@ export async function getStaticProps(context) {
         address: " some where 5 st ",
         description: " the meetup",
       },
-    },
+      },
+      
   };
 }
 
